@@ -1,0 +1,22 @@
+.modal-header {
+	background-color: #dedede;
+	border-radius: 6px 6px 0 0;
+}
+	.modal-header button {
+		margin: 0;
+	}
+	.modal-title {
+		line-height: 1.1;
+		width: 210px;
+	}
+.modal-body img {
+	margin-left: 40px;
+}
+.info, .printModal {
+	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.printModal table tr td {
+	border-top: none;
+	border-bottom: 1px solid #dedede;
+}

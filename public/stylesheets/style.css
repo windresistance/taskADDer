@@ -1,0 +1,238 @@
+* {
+	font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: middle;
+}
+body {
+	background-color: #ecf0f1; /*flatui clouds*/
+}
+a {
+	text-decoration: none;
+}
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+h1, h2 {
+	line-height: 1;
+}
+
+.main_container {
+	width: 100%;
+	padding: 0;
+}
+.header {
+	/*height: 70px;*/
+	/*width: 100%;*/
+	min-width: 390px;
+	padding: 1px 0 1px 30px;
+	background-color: #2c3e50; /*flatui midnight blue*/
+}
+	h1 {
+		margin: 0;
+		font-size: 0;
+	}
+	h1:hover {
+		cursor: pointer;
+	}
+		h1 span {
+			font: 48px 'Indie Flower', cursive;
+			color: #ecf0f1; /*flatui clouds*/
+		}
+		h1 span:nth-child(2) {
+			color: #3edc71; /*green*/
+		}
+	.newList_form {
+		/*width: 189px;*/
+		margin-top: 16px;
+		margin-left: 40px;
+		padding: 4px 6px;
+		border-radius: 4px;
+		background-color: #fff;
+		/*background-color: #3edc71;*/ /*green*/
+		/*border-bottom: 3px solid #008c31;*/
+		/*border-right: 3px solid #008c31;*/
+	}
+		.addListName {
+			width: 140px;
+			font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+		}
+		.addListBtn {
+			color: #20a020; /*green*/
+			/*line-height: 26px;*/
+			font-size: 36px;
+		}
+		.addListBtn:hover {
+			color: #20a020;
+			font-weight: bold;
+			cursor: pointer;
+		}
+	.helpBtn {
+		/*margin-top: 12px;*/
+		/*height: 39px;*/
+		/*line-height: 39px;*/
+		padding: 0;
+		/*font: 32px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+	}
+	.helpBtn, .helpBtn:hover, .helpBtn:active {
+		background-color: transparent;
+		border: none;
+		outline: none;
+	}
+
+
+	.list_name {
+		font-size: 24px;
+		margin-right: 10px;
+	}
+	.list_name input {
+		font-size: 24px;
+		height: 32px;
+		line-height: 24px;
+	}
+	
+	.list_tools {
+	}
+		.list_tools a {
+			color: Red;
+			font-size: 24px;
+			opacity: 0.3;
+		}
+		.list_tools a:hover {
+			text-decoration: none;
+			opacity: 1;
+		}
+		.list_tools .editListBtn {
+			color: Blue;
+		}
+		.list_tools .delListBtn {
+			color: Red;
+		}
+		.list_tools .printListBtn {
+			color: Black;
+		}
+input, select {
+	height: 24px;
+	line-height: 24px;
+	border-radius: 4px;
+}
+input[type="text"] {
+	padding: 0 4px;
+}
+input[type="submit"] {
+	background-color: transparent;
+}
+.in_blk {
+	display: inline-block;
+	vertical-align: top;
+}
+
+ol {
+	list-style-type: none;
+}
+
+.side_bar {
+	background-color: #2c3e50; /*flatui midnight blue*/
+	height: 730px;
+	padding: 0 18px;
+}
+	.side_bar_list {
+		background-color: #ecf0f1; /*flatui clouds*/
+		margin-bottom: 20px;
+		padding: 0 12px 12px 12px;
+		border-radius: 4px;
+	}
+	
+.lists_container {
+	padding: 0 20px;
+}
+	.list_div {
+		width: 380px;
+		margin: 0 20px 20px 10px;
+		padding: 10px 0 0 0;
+	}
+		.error_messages {
+			color: red;
+			list-style-type: none;
+		}
+
+		h2, .listhead, .listcontent {
+			/*padding: 1px 6px;*/
+			width: 350px;
+		}
+		.listhead {
+			padding-bottom: 1px;
+		}
+		.listcontent {
+			padding-bottom: 24px;
+		}
+		.newTask, .task {
+			margin: 6px 0;
+			padding: 6px;
+			padding-right: 0;
+			border-radius: 4px;
+		}
+		.newTask {
+			background-color: #3edc71; /*green*/
+			border-bottom: 3px solid #008c31;
+			border-right: 3px solid #008c31;
+		}
+		.task {
+			background-color: rgb(258,247,182); /*yellow*/
+			border-bottom: 3px solid rgb(139,139,5);
+			border-right: 3px solid rgb(139,139,5);
+		}
+		.newList {
+			margin: 6px 0 6px 20px;
+			padding: 6px;
+			border-radius: 4px;
+			background-color: #3edc71; /*green*/
+			border-bottom: 3px solid #008c31;
+			border-right: 3px solid #008c31;
+		}
+			.first {
+				width: 230px;
+			}
+			.second {
+				width: 72px;
+			}
+			.third {
+				width: 72px;
+			}
+			.fourth {
+				width: 25px;
+				height: 24px;
+				margin-right: 2px;
+				text-align: right;
+				text-decoration: none;
+			}
+				.addItemBtn {
+					color: #20a020; /*green*/
+					line-height: 26px;
+					font-size: 36px;
+				}
+				.addItemBtn:hover {
+					color: #20a020;
+					font-weight: bold;
+					cursor: pointer;
+				}
+				.completeTask span:after {
+					line-height: 30px;
+					font-size: 36px;
+					content: "\2610";
+					color: #20a020; /*green*/
+				}
+				.completeTask:hover span:after {
+					content: "\2611";
+					color: DarkGreen;
+					text-decoration: none;
+				}
+.angular-ui-tree-drag {
+	position: absolute;
+	pointer-events: none;
+	z-index: 999;
+	opacity: .8;    
+}

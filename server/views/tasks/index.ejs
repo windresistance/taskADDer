@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    
+	<title>taskADDer</title>
+	<meta name="description" content="Agenda App">
+	
+	<!-- Include jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
+	<!-- Include Angular and supporting files -->
+	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.8/angular.js'></script>
+	<script type="text/javascript" src='/javascripts/angular/app.js'></script>
+	<script type="text/javascript" src='/javascripts/angular/controllers/tasks.js'></script>
+	<script type="text/javascript" src='/javascripts/angular/models/tasks_factory.js'></script>
+	
+	<!-- Include Bower and UI-Sortable -->
+	<script type="text/javascript" src="/javascripts/angular/vendor/ui-sortable/src/sortable.js"></script>
+	<script type="text/javascript" src="/javascripts/bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+	
+	<!-- Include Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	
+	<!-- Include User Styles -->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style_modal.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style_mobile.css">
+	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	
+	<!-- 473-474 -->
+	<!-- 500-501 -->
+</head>
+<body ng-app="myApp">
+	<div ng-controller="tasksController" class="main_container">
+		<div class="header">
+			<h1 class="in_blk">
+				<button type="button" class="helpBtn btn btn-primary btn-lg" data-toggle="modal" data-target="#helpModal" title="Help using taskADDer">
+					<span>task</span>
+					<span>ADD</span>
+					<span>er</span>
+				</button>
+			</h1>
+			<form class="newList_form in_blk">
+				<input type="text" class="addListName" ng-model="new_list.list_name" placeholder="new list" title="Enter list name"/>
+				<input type="submit" class="addListBtn" ng-click="addList()" href="#" value="+" title="Create new list"/>
+			</form>
+			<!-- <button type="button" class="helpBtn btn btn-primary btn-lg" data-toggle="modal" data-target="#helpModal" title="Help using taskADDer">?</button> -->
+		</div>
+		
+		<!-- <div class="lists_container container"> -->
+		<ol class="lists_container" ng-model="lists">
+			<li class="list_div col-sm-4 col-xs-12" ng-repeat="list in lists track by $index">
+				<h2>
+					<!-- <span class="list_name" ng-dblclick="editListTitle(list)" listname="{{list.list_name}}">{{list.list_name}}</span> -->
+					<span class="list_name" listname="{{list.list_name}}">{{list.list_name}}</span>
+					<span class="list_tools pull-right">
+						<!-- <a class="editListBtn" ng-click="editList(list)" href="#" title="Edit list">&#x270E</a> -->
+						<a class="delListBtn" ng-click="delList(list)" href="#" title="Remove list">&#x2717</a>
+						<!-- <a class="printListBtn" ng-click="printList(list)" href="#" title="Print list">&#x0229F</a> -->
+						<a class="printListBtn" ng-click="printList(list)" data-toggle="modal" data-target="#printModal" href="#" title="Print list">&#x0229F</a>
+					</span>
+				</h2>
+				<div class="listhead">
+					<form class="newTask">
+						<input ng-model="list.new_task.task_name" type="text" class="in_blk first" placeholder="new task or item" title="Enter task/item name"/>
+						<input ng-model="list.new_task.category" type="text" class="in_blk second" placeholder="category" title="Enter task/item category"/>
+						<!-- <select ng-model="list.new_task.priority" ng-options="priority.name for priority in priorities track by priority.value" class="in_blk third" title="Enter task/item priority">
+							<option value="">priority</option>
+						</select> -->
+						<input type="submit" class="in_blk fourth addItemBtn" ng-click="addTask(list)" href="#" title="Add item" value="+">
+					</form>
+				</div>
+				<div ui-tree="treeOptions" class="listcontent">
+					<ol ui-tree-nodes="" ng-model="list.tasks">
+						<li class="task" ng-repeat="task in list.tasks" ui-tree-node ui-tree-handle>
+							<div class="in_blk first">{{task.task_name}}</div>
+							<div class="in_blk second">{{task.category}}</div>
+							<!-- <div class="in_blk third">{{task.priority.name}}</div> -->
+							<div class="in_blk fourth" data-nodrag><span class="completeTask" ng-click="delTask(list, $index)" href="#" title="Remove this item"><span></span></span></div>
+						</li>
+					</ol>
+				</div>
+			</li>
+		</ol>
+		<!-- </div> -->
+		
+		<!-- Help Modal -->
+		<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+						<h2 class="modal-title in_blk" id="myModalLabel">taskADDer Help</h2>
+						<button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+					</div>
+					<div class="modal-body">
+						<p>First, create a new list: <img src="/images/addlist.png" alt="addlist.png" class=""></p>
+						<p>Add items to your list...</p>
+						<p class="align-right"><img src="/images/addtask.png" alt="addtask.png" class=""></p>
+						<p>Click and drag to rearrange items...</p>
+						<p class="align-right"><img src="/images/dragtask.png" alt="dragtask.png" class=""></p>
+						<p>Check off items when complete!</p>
+						<p class="align-right"><img src="/images/completetask.png" alt="completetask.png" class=""></p>
+						<p class="info">V 1.01 -- updated 2015-01-15</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Print Modal -->
+		<div class="modal fade" id="printModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+						<button type="button" class="pull-right btn btn-default" data-dismiss="modal">Close</button>
+						<h2 class="modal-title in_blk" id="myModalLabel">{{printedList.list_name}}</h2>
+					</div>
+					<div class="modal-body printModal">
+						<table ng-model="printedList.tasks" class="table">
+							<tr class="" ng-repeat="task in printedList.tasks">
+								<td>{{task.task_name}}</td>
+								<td>{{task.category}}</td>
+								<td>{{task.priority.name}}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div> <!-- end of tasksController -->
+</body>
+</html>

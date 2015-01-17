@@ -1,0 +1,22 @@
+@media screen and (max-width: 543px) { /*473px*/
+	.header {
+		padding-left: 10px;
+	}
+		.newList_form {
+			margin: 4px 0 4px 15px;
+		}
+			.addListName {
+				width: 140px;
+			}
+	.lists_container {
+		padding-left: 0;
+	}
+	
+	h1 span {
+		font-size: 30px;
+	}
+	
+	.modal-body img {
+		margin-left: 0;
+	}
+}
