@@ -215,20 +215,20 @@ ol {
 					font-size: 36px;
 				}
 				.addItemBtn:hover {
-					color: #20a020;
-					font-weight: bold;
+					color: DarkGreen;
 					cursor: pointer;
 				}
 				.completeTask span:after {
-					line-height: 30px;
-					font-size: 36px;
+					line-height: 26px;
+					font-size: 32px;
 					content: "\2610";
-					color: #20a020; /*green*/
+					color: rgb(228,217,182); /*gray-yellow*/
 				}
 				.completeTask:hover span:after {
 					content: "\2611";
-					color: DarkGreen;
+					color: #20a020;
 					text-decoration: none;
+					cursor: pointer;
 				}
 .angular-ui-tree-drag {
 	position: absolute;
