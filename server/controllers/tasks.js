@@ -12,7 +12,7 @@ module.exports = {
 	// retrieve all list and task data
 	index_json: function(req, res){
 		// task.find({}).sort({task_position: 1}).exec(function(err, results){
-		list.find().sort({list_position: 1}).exec(function(err, results){
+		list.find().sort({created_at: 1}).exec(function(err, results){
 			console.log("results= ",results);
 			res.send(JSON.stringify(results));
 		});
